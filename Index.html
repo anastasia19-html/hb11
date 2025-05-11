@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днем Рождения, Братик!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        header {
+            background-color: #ff6b6b;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .photo-container {
+            margin: 20px 0;
+        }
+        
+        .photo-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .message {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .signature {
+            font-style: italic;
+            margin-top: 30px;
+            text-align: right;
+            font-size: 1.1em;
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0.7;
+            animation: fall 5s linear infinite;
+            z-index: 100;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>С Днем Рождения, Братик!</h1>
+    </header>
+    
+    <div class="container">
+        <div class="photo-container">
+            <img src="img/photo1.jpg" alt="Фото с братом">
+        </div>
+        
+        <div class="message">
+            <p>Дорогой братик!</p>
+            <p>В этот особенный день хочу пожелать тебе крепкого здоровья, безграничного счастья и исполнения всех твоих желаний! Пусть каждый день приносит радость, успех и новые возможности.</p>
+            <p>Ты - не просто брат, ты - мой лучший друг, поддержка и вдохновение. Спасибо за всё, что ты для меня делаешь!</p>
+            <p>Пусть этот год будет наполнен яркими моментами, интересными событиями и приятными сюрпризами. Желаю тебе оставаться таким же замечательным человеком, каким ты есть!</p>
+        </div>
+        
+        <div class="signature">
+            <p>С любовью,</p>
+            <p>Твоя сестричка</p>
+        </div>
+    </div>
+    
+    <script>
+        // Создаем конфетти
+        function createConfetti() {
+            const colors = ['#ff6b6b', '#48dbfb', '#1dd1a1', '#feca57', '#5f27cd'];
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.width = Math.random() * 10 + 5 + 'px';
+            confetti.style.height = Math.random() * 10 + 5 + 'px';
+            confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+        
+        // Запускаем конфетти каждые 100мс
+        setInterval(createConfetti, 100);
+    </script>
+</body>
+</html>
